@@ -7,6 +7,8 @@ name: React App on Surge
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -25,16 +27,15 @@ jobs:
       with:
         node-version: 12 
       
-    - name: Prepare for Yarn Installation
-      run: curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    - name: install yarn
-      run: sudo apt update && sudo apt install yarn
+    - uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install # will run `yarn install` command
         
     - name: Build React App
       run: yarn build
       
     - name: Install Surge
-      run: npm install -g surge
+      run: npm install --global surge
       
     - name: Run surge
       run: surge ./build react_mowais_app.surge.sh --token ${{ secrets.SURGE_TOKEN }}
