@@ -1,0 +1,18 @@
+.room, #root {
+    height: 100vh;
+    margin: 0px;
+}
+    
+.Lit {
+    background-color: white;
+    color:black;
+}
+
+.Dark {
+    background-color: black;
+    color: white;
+}
+
+.buttons{
+    margin: 10px 5px 5px 5px;
+}
