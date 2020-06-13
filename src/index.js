@@ -7,7 +7,7 @@ import Room from "./Room";
 const Author = ({ name }) => (
   <div className="author">
     <em>
-      Coded by: <a href="https://github.com/MOwais20" target="_blank"><strong>{name}</strong></a>
+      Coded by: <a href="https://github.com/MOwais20" target="_blank" rel="noopener noreferrer"><strong>{name}</strong></a>
     </em>
   </div>
 );
